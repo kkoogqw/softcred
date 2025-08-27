@@ -1,0 +1,3 @@
+[workspace]
+members = ["bulletproofs", "pbcwa", "gadgets"]
+resolver = "3"

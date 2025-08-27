@@ -1,0 +1,46 @@
+[package]
+name = "pbcwa"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+group = { version = "0.13", default-features = true }
+subtle = { version = "2.5", default-features = true }
+sha2 = { version = "0.10", default-features = true }
+sha3 = { version = "0.10", default-features = true }
+digest = { version = "0.10", default-features = true }
+
+rand_core = { version = "0.6", default-features = true, features = ["alloc"] }
+rand = { version = "0.8", default-features = false, features = [
+    "std",
+    "std_rng",
+] }
+rand_chacha = { version = "0.3", default-features = true }
+
+byteorder = { version = "1", default-features = false }
+serde = { version = "1", default-features = false, features = ["alloc"] }
+serde_derive = { version = "1", default-features = false }
+thiserror = { version = "1", optional = true }
+bincode = { version = "1", default-features = true }
+
+clear_on_drop = { version = "0.2", default-features = false }
+num-bigint = { version = "0.3", default-features = false }
+hex = { version = "0.4.2", default-features = true }
+sp-std = { default-features = false, version = "2.0.0" }
+merlin = { version = "3", default-features = false }
+curve25519-dalek = { version = "4.1.1", features = [
+    "digest",
+    "group",
+    "rand_core",
+    "serde",
+    "precomputed-tables",
+    "zeroize",
+] }
+
+bulletproofs = { path = "../bulletproofs", default-features = true, features = [
+    "std",
+    "yoloproofs",
+] }
+gadgets = { path = "../gadgets", default-features = true }
+[lib]
+crate-type = ["cdylib", "rlib", "staticlib"]
